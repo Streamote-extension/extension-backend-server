@@ -8,6 +8,7 @@ from time import sleep
 import imutils
 
 from WebCam import WebcamVideoStream
+from VideoStream import Videostream
 from Engine.utils.datasets import get_labels
 from Engine.utils.inference import detect_faces
 from Engine.utils.inference import draw_text
@@ -37,14 +38,14 @@ emotion_window = []
 # starting video streaming
 cv2.namedWindow('window_frame')
 
-vs = WebcamVideoStream(src=0).start()
+vs = Videostream('https://www.twitch.tv/mrmcpowned', resolution='720p60')
 
 while True:
 
     # if vs.more():
 
     bgr_image = vs.read()
-    bgr_image= imutils.resize(bgr_image, width=1700)
+    bgr_image= imutils.resize(bgr_image, width=800)
 
     # sleep(1/30)
 

@@ -22,7 +22,7 @@ class WebcamVideoStream:
         # loop til thread stops
         while True:
             # if the thread indicator variable is set, stop the thread
-            if self.stopped:
+            if self.stopThread:
                 return
 
             # otherwise, read the next frame from the stream
