@@ -1,13 +1,14 @@
 import numpy as np
 import cv2
 from keras.preprocessing import image
+from WebCam import WebcamVideoStream
 
 #-----------------------------
 #opencv initialization
 
 stream_Cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
-vid_Cap = cv2.VideoCapture(0) # 'https://my.mixtape.moe/ctafim.m3u8'
+vs = WebcamVideoStream(src=0).start()
 #-----------------------------
 #face expression recognizer initialization
 from keras.models import model_from_json
@@ -19,7 +20,7 @@ model.load_weights('facial_expression_model_weights.h5') #loading preprepped wei
 streamotions = ('angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral')
 
 while(True):
-	ret, img = vid_Cap.read()
+	ret, img = vs.read()
 	
 	grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
@@ -59,5 +60,5 @@ while(True):
 		break
 
 #kill open cv things		
-vid_Cap.release()
+vs.release()
 cv2.destroyAllWindows()
