@@ -5,7 +5,7 @@ import subprocess as sp
 from queue import Queue
 
 class Videostream:
-    def __init__(self, twitchUrl, queueSize = 128, resolution = '1080p', n_frame = 10):
+    def __init__(self, twitchUrl, queueSize = 128, resolution = '360p\', n_frame = 10):
         self.stopThread = False
         self. twitchUrl = twitchUrl
         self.res = resolution

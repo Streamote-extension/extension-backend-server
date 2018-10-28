@@ -6,7 +6,8 @@ from WebCam import WebcamVideoStream
 #-----------------------------
 #opencv initialization
 
-stream_Cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+detection_model_path = 'haarcascade_frontalface_default.xml'
+emotion_model_path = 'facial_expression_model_weights.h5'
 
 vs = WebcamVideoStream(src=0).start()
 #-----------------------------
